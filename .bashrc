@@ -115,13 +115,3 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-
-alias cmake="/home/user/cmake/cmake-3.10.1-Linux-x86_64/bin/cmake"
-alias gcc="gcc-7"
-alias g++="g++-7"
-
-e() { emacs "$@" & }
-
-create_git_repo () {
-    curl -u 'monibahmed' https://api.github.com/user/repos -d '{"name":"$1"}
-}
