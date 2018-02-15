@@ -59,6 +59,7 @@ fi
 if [ "$color_prompt" = yes ]; then
     PS1='\n${debian_chroot:+($debian_chroot)}:\[\033[01;34m\]\w\[\033[00m\]\n\$ '
 else
+    echo "Color not enabled in terminal."
     PS1='\n${debian_chroot:+($debian_chroot)}:\w\$ '
 fi
 unset color_prompt force_color_prompt
@@ -116,11 +117,14 @@ if ! shopt -oq posix; then
   fi
 fi
 
-alias cmake="/home/user/cmake/cmake-3.10.1-Linux-x86_64/bin/cmake"
-alias gcc="gcc-7"
-alias g++="g++-7"
-
 alias md="mkdir"
 alias rm="rm -rf"
 alias als="source ~/.bashrc"
+
 source ~/my_functions.sh
+
+LS_COLORS=$LS_COLORS:'di=0;35:' ; export LS_COLORS
+
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
